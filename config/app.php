@@ -9,6 +9,23 @@ $config = [
         'request' => [
             'cookieValidationKey' => 'NWkH-q3J_pPtCTTCc1Kijz-3TF1ACBCi',
         ],
+        'view' => [
+            'class' => \yii\web\View::class,
+            'renderers' => [
+                'twig' => [
+                    'class' => \yii\twig\ViewRenderer::class,
+                    'cachePath' => '@runtime/Twig/cache',
+                    'options' => [
+                        'auto_reload' => true
+                    ],
+                    'globals' => [
+                        'html' => [
+                            'class' => \yii\helpers\Html::class
+                        ]
+                    ]
+                ]
+            ]
+        ]
     ]
 ];
 

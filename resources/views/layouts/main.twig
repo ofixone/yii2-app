@@ -1,0 +1,22 @@
+{{ register_asset_bundle('resources\\assets\\AppAsset') }}
+{{ void(this.beginPage()) }}
+<!DOCTYPE html>
+<html lang="{{ app.language }}">
+<head>
+    <meta charset="{{ app.charset }}">
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>{{ html.encode(this.title) }}</title>
+    {{ html.csrfMetaTags | raw }}
+    {{ void(this.head) }}
+</head>
+<body>
+{{ void(this.beginBody()) }}
+<main>
+    {{ content | raw }}
+</main>
+{{ void(this.endBody()) }}
+</body>
+</html>
+{{ void(this.endPage()) }}
