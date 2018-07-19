@@ -1,0 +1,59 @@
+{
+  "name": "ofixone/yii2-app-improved",
+  "description": "Yii2 Improved Project Template",
+  "keywords": [
+    "yii2",
+    "framework",
+    "improved",
+    "project template"
+  ],
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": ">=7.1",
+    "vlucas/phpdotenv": "^2.5",
+    "yiisoft/yii2": "2.0.15.1"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "config": {
+    "process-timeout": 1800,
+    "sort-packages": true,
+    "fxp-asset": {
+      "enabled": false
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "runtime": "0777",
+          "web/assets": "0777",
+          "yii": "0755"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config/app.php"
+      ]
+    }
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0"
+  }
+}
