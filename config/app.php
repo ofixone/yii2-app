@@ -7,7 +7,7 @@ $config = [
     'viewPath' => PROJECT_DIR . "/resources/views",
     'components' => [
         'request' => [
-            'cookieValidationKey' => 'NWkH-q3J_pPtCTTCc1Kijz-3TF1ACBCi',
+            'cookieValidationKey' => '',
         ],
         'view' => [
             'class' => \yii\web\View::class,
