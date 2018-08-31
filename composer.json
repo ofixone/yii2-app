@@ -55,6 +55,7 @@
     },
     "config-plugin": {
       "base": [
+        "?.env",
         "config/init.php",
         "config/env.php",
         "config/base.php"
