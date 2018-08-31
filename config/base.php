@@ -30,14 +30,14 @@ $config = [
             'dsn' => env('DB_DSN', 'mysql:host=localhost;dbname=app'),
             'username' => env('DB_USER', 'root'),
             'password' => env('DB_PASS', ''),
-            'enableSchemaCache' => YII_ENV_PROD,
+            'enableSchemaCache' => env('YII_ENV') === 'prod',
             'charset' => 'utf8'
         ],
     ],
     'params' => $params
 ];
 
-return YII_ENV_DEV ? \yii\helpers\ArrayHelper::merge($config, [
+return env('YII_ENV_') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
     'bootstrap' => ['gii'],
     'modules' => [
         'gii' => [

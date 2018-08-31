@@ -11,8 +11,9 @@
   "license": "BSD-3-Clause",
   "require": {
     "php": ">=7.1",
+    "hiqdev/composer-config-plugin": "^0.2.5",
     "vlucas/phpdotenv": "^2.5",
-    "yiisoft/yii2": "2.0.15.1",
+    "yiisoft/yii2": "^2.0.15",
     "yiisoft/yii2-twig": "^2.2"
   },
   "repositories": [
@@ -50,6 +51,24 @@
     "yii\\composer\\Installer::postInstall": {
       "generateCookieValidationKey": [
         "config/app.php"
+      ]
+    },
+    "config-plugin": {
+      "base": [
+        "config/init.php",
+        "config/env.php",
+        "config/base.php"
+      ],
+      "app": [
+        "$base",
+        "config/app.php"
+      ],
+      "console": [
+        "$base",
+        "config/console.php"
+      ],
+      "params": [
+        "config/params.php"
       ]
     }
   },

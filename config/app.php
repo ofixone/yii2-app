@@ -21,7 +21,10 @@ $config = [
                     'globals' => [
                         'html' => [
                             'class' => \yii\helpers\Html::class
-                        ]
+                        ],
+                        'url' => [
+                            'class' => \yii\helpers\Url::class
+                        ],
                     ]
                 ]
             ]
@@ -29,7 +32,7 @@ $config = [
     ]
 ];
 
-return YII_ENV_DEV ? \yii\helpers\ArrayHelper::merge($config, [
+return env('YII_ENV') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
     'bootstrap' => ['debug', 'gii'],
     'modules' => [
         'debug' => [
