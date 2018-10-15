@@ -1,5 +1,6 @@
 <?php
-require_once PROJECT_DIR . "/vendor/autoload.php";
+$dotenv = new \Dotenv\Dotenv(PROJECT_DIR);
+$dotenv->load();
 
 if (!function_exists('env')) {
     function env($key, $default = null)

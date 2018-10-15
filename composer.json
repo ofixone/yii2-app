@@ -10,11 +10,14 @@
   "type": "project",
   "license": "BSD-3-Clause",
   "require": {
-    "php": ">=7.1",
-    "hiqdev/composer-config-plugin": "^0.2.5",
+    "php": ">=7.0",
     "vlucas/phpdotenv": "^2.5",
     "yiisoft/yii2": "^2.0.15",
     "yiisoft/yii2-twig": "^2.2"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0"
   },
   "repositories": [
     {
@@ -52,29 +55,6 @@
       "generateCookieValidationKey": [
         "config/app.php"
       ]
-    },
-    "config-plugin": {
-      "base": [
-        "?.env",
-        "config/init.php",
-        "config/env.php",
-        "config/base.php"
-      ],
-      "app": [
-        "$base",
-        "config/app.php"
-      ],
-      "console": [
-        "$base",
-        "config/console.php"
-      ],
-      "params": [
-        "config/params.php"
-      ]
     }
-  },
-  "require-dev": {
-    "yiisoft/yii2-debug": "~2.0.0",
-    "yiisoft/yii2-gii": "~2.0.0"
   }
 }

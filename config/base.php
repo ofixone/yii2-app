@@ -1,6 +1,6 @@
 <?php
 
-$params = require_once "params.php";
+$params = require_once __DIR__ . "/params.php";
 
 $config = [
     'basePath' => PROJECT_DIR . "/app",
@@ -27,7 +27,7 @@ $config = [
         ],
         'db' => [
             'class' => \yii\db\Connection::class,
-            'dsn' => env('DB_DSN', 'mysql:host=localhost;dbname=app'),
+            'dsn' => 'mysql:host='.env('DB_DSN', 'localhost').';dbname='. env('DB_NAME', 'app'),
             'username' => env('DB_USER', 'root'),
             'password' => env('DB_PASS', ''),
             'enableSchemaCache' => env('YII_ENV') === 'prod',

@@ -1,13 +1,13 @@
 <?php
 
 $config = [
-    'id' => env('APP_ID'),
-    'name' => env('APP_NAME'),
+    'id' => '',
+    'name' => '',
     'defaultRoute' => 'app/index',
     'viewPath' => PROJECT_DIR . "/resources/views",
     'components' => [
         'request' => [
-            'cookieValidationKey' => 'hzoXlx0uqb5qDrB4ol03H7EFLVPjyexs',
+            'cookieValidationKey' => '',
         ],
         'view' => [
             'class' => \yii\web\View::class,
