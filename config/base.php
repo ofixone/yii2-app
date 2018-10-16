@@ -7,18 +7,32 @@ $config = [
     'vendorPath' => PROJECT_DIR . "/vendor",
     'runtimePath' => PROJECT_DIR . "/runtime",
     'language' => 'ru',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['monolog', 'log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
+        'monolog' => [
+            'class' => \Mero\Monolog\MonologComponent::class,
+            'channels' => [
+                'main' => [
+                    'handler' => [
+                        [
+                            'type' => 'stream',
+                            'path' => '@runtime/logs/yii_' . date('Y-m-d') . '.log'
+                        ]
+                    ],
+                    'processor' => [],
+                ],
+            ]
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => \yii\log\FileTarget::class,
-                    'levels' => ['error'],
+                    'class' => \Mero\Monolog\MonologTarget::class,
+                    'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
