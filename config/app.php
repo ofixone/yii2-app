@@ -1,33 +1,25 @@
 <?php
 
 $config = [
-    'id' => '',
-    'name' => '',
     'defaultRoute' => 'app/index',
-    'viewPath' => PROJECT_DIR . "/resources/views",
+    'viewPath' => PROJECT_DIR . "/frontend/views",
     'components' => [
         'request' => [
             'cookieValidationKey' => '_v3xFO_kgrKMGm7lhFZaLBejxlwY8Gou',
         ],
         'view' => [
-            'class' => \yii\web\View::class,
             'renderers' => [
-                'twig' => [
+                'twig' => \yii\helpers\ArrayHelper::merge([
                     'class' => \yii\twig\ViewRenderer::class,
-                    'cachePath' => '@runtime/Twig/cache',
+                    'cachePath' => '@runtime/twig/cache',
                     'options' => [
-                        'auto_reload' => true
-                    ],
-                    'globals' => [
-                        'html' => [
-                            'class' => \yii\helpers\Html::class
-                        ],
-                        'url' => [
-                            'class' => \yii\helpers\Url::class
-                        ],
+                        'auto_reload' => YII_ENV_DEV
                     ]
-                ]
+                ], require "additional/twig.php")
             ]
+        ],
+        'assetManager' => [
+            'appendTimestamp' => true
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

@@ -1,38 +1,31 @@
 <?php
-
-$params = require_once __DIR__ . "/params.php";
+$monolog = new \Monolog\Logger('app');
+$monolog->pushHandler(new \Monolog\Handler\StreamHandler(
+    PROJECT_DIR . "/runtime/logs/app_" . date('Y-m-d') . '.log'
+));
 
 $config = [
-    'basePath' => PROJECT_DIR . "/app",
+    'id' => 'app',
+    'basePath' => PROJECT_DIR . "/backend",
     'vendorPath' => PROJECT_DIR . "/vendor",
     'runtimePath' => PROJECT_DIR . "/runtime",
     'language' => 'ru',
-    'bootstrap' => ['monolog', 'log'],
+    'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
-        'monolog' => [
-            'class' => \Mero\Monolog\MonologComponent::class,
-            'channels' => [
-                'main' => [
-                    'handler' => [
-                        [
-                            'type' => 'stream',
-                            'path' => '@runtime/logs/yii_' . date('Y-m-d') . '.log'
-                        ]
-                    ],
-                    'processor' => [],
-                ],
-            ]
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => \Mero\Monolog\MonologTarget::class,
-                    'levels' => ['error', 'warning', 'info'],
+                    'class' => \samdark\log\PsrTarget::class,
+                    'logger' => $monolog,
+                    'levels' => [
+                        \yii\log\Logger::LEVEL_WARNING,
+                        \yii\log\Logger::LEVEL_ERROR
+                    ]
                 ],
             ],
         ],
@@ -48,7 +41,7 @@ $config = [
             'charset' => 'utf8'
         ],
     ],
-    'params' => $params
+    'params' => require_once "params.php"
 ];
 
 return env('YII_ENV_') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [

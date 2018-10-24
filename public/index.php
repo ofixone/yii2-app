@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . "/../config/init.php";
+defined('PROJECT_DIR') or define('PROJECT_DIR', dirname(__DIR__));
 
 require PROJECT_DIR . '/vendor/autoload.php';
-require PROJECT_DIR . "/config/env.php";
+require PROJECT_DIR . "/config/primary/env.php";
 
 require PROJECT_DIR . '/vendor/yiisoft/yii2/Yii.php';
-require PROJECT_DIR . "/config/bootstrap.php";
+require PROJECT_DIR . "/config/primary/bootstrap.php";
 
 $config = \yii\helpers\ArrayHelper::merge(
     require PROJECT_DIR . "/config/base.php",
