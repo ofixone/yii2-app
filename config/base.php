@@ -1,7 +1,8 @@
 <?php
 $monolog = new \Monolog\Logger('app');
 $monolog->pushHandler(new \Monolog\Handler\StreamHandler(
-    PROJECT_DIR . "/runtime/logs/app_" . date('Y-m-d') . '.log'
+    PROJECT_DIR . "/runtime/logs/app_" . date('Y-m-d') . '.log',
+    \Monolog\Logger::ERROR
 ));
 
 $config = [
@@ -21,11 +22,7 @@ $config = [
             'targets' => [
                 [
                     'class' => \samdark\log\PsrTarget::class,
-                    'logger' => $monolog,
-                    'levels' => [
-                        \yii\log\Logger::LEVEL_WARNING,
-                        \yii\log\Logger::LEVEL_ERROR
-                    ]
+                    'logger' => $monolog
                 ],
             ],
         ],
