@@ -1,10 +1,10 @@
 {
-  "name": "ofixone/yii2-improved",
-  "description": "Yii2 Improved Project Template",
+  "name": "ofixone/yii2-app",
+  "description": "Yii2 App Project Template",
   "keywords": [
     "yii2",
     "framework",
-    "improved",
+    "app",
     "project template"
   ],
   "type": "project",
