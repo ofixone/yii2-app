@@ -1,7 +1,7 @@
 <?php
 
 $config = [
-    'controllerNamespace' => 'app\console\controllers',
+    'controllerNamespace' => 'app\backend\console\controllers',
 ];
 
 return $config;

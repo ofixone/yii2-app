@@ -7,7 +7,7 @@ $monolog->pushHandler(new \Monolog\Handler\StreamHandler(
 
 $config = [
     'id' => 'app',
-    'basePath' => PROJECT_DIR . "/backend",
+    'basePath' => PROJECT_DIR,
     'vendorPath' => PROJECT_DIR . "/vendor",
     'runtimePath' => PROJECT_DIR . "/runtime",
     'language' => 'ru',

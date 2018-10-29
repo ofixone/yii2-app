@@ -2,6 +2,7 @@
 
 $config = [
     'defaultRoute' => 'app/index',
+    'controllerNamespace' => 'app\backend\controllers',
     'viewPath' => PROJECT_DIR . "/frontend/views",
     'components' => [
         'request' => [
