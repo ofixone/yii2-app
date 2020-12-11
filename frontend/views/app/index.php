@@ -1,1 +1,2 @@
-<?= Yii::$app->controller->id  ?>
+<?php
+phpinfo();

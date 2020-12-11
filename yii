@@ -3,16 +3,14 @@
 defined('PROJECT_DIR') or define('PROJECT_DIR', __DIR__);
 
 require PROJECT_DIR . '/vendor/autoload.php';
-require PROJECT_DIR . "/config/primary/env.php";
+
+if (getenv('APP_ENV') === 'dev') {
+    Yiisoft\Composer\Config\Builder::rebuild();
+}
 
 require PROJECT_DIR . '/vendor/yiisoft/yii2/Yii.php';
-require PROJECT_DIR . "/config/primary/bootstrap.php";
+require PROJECT_DIR . '/config/primary/bootstrap.php';
 
-$config = \yii\helpers\ArrayHelper::merge(
-    require PROJECT_DIR . "/config/common.php",
-    require PROJECT_DIR . "/config/console.php"
-);
-
-$application = (new yii\console\Application($config));
+$application = (new yii\console\Application(require_once PROJECT_DIR . '/runtime/config/console.php'));
 $exitCode = $application->run();
 exit($exitCode);

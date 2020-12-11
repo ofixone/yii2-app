@@ -9,9 +9,12 @@
   ],
   "type": "project",
   "license": "BSD-3-Clause",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.4",
     "vlucas/phpdotenv": "^2.5",
+    "yiisoft/composer-config-plugin": "dev-master",
     "yiisoft/yii2": "^2.0.0"
   },
   "require-dev": {
@@ -41,6 +44,21 @@
     ]
   },
   "extra": {
+    "config-plugin-output-dir": "runtime/config",
+    "config-plugin": {
+      "envs": ".env",
+      "constants": "config/constants.php",
+      "common": "config/common.php",
+      "params": "config/params.php",
+      "app": [
+        "$common",
+        "config/app.php"
+      ],
+      "console": [
+        "$common",
+        "config/console.php"
+      ]
+    },
     "yii\\composer\\Installer::postCreateProject": {
       "setPermission": [
         {

@@ -21,7 +21,7 @@ $config = [
     ]
 ];
 
-return env('YII_ENV') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
+return getenv('YII_ENV') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
     'bootstrap' => ['debug', 'gii'],
     'modules' => [
         'debug' => [

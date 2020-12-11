@@ -1,4 +1,9 @@
 <?php
+/**
+ * @var array $params
+ */
+
+
 $config = [
     'id' => 'app',
     'basePath' => PROJECT_DIR,
@@ -19,17 +24,17 @@ $config = [
         ],
         'db' => [
             'class' => \yii\db\Connection::class,
-            'dsn' => 'pgsql:host='.env('DB_HOST', 'localhost').';dbname='. env('DB_NAME', 'app'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-            'enableSchemaCache' => env('YII_ENV') === 'prod',
+            'dsn' => 'pgsql:host='.getenv('DB_HOST').';dbname='. getenv('DB_NAME'),
+            'username' => getenv('DB_USERNAME', 'root'),
+            'password' => getenv('DB_PASSWORD', ''),
+            'enableSchemaCache' => getenv('YII_ENV') === 'prod',
             'charset' => 'utf8'
         ],
     ],
-    'params' => require_once 'params.php'
+    'params' => $params
 ];
 
-return env('YII_ENV_') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
+return getenv('YII_ENV_') === 'dev' ? \yii\helpers\ArrayHelper::merge($config, [
     'bootstrap' => ['gii'],
     'modules' => [
         'gii' => [
