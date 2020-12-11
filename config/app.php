@@ -3,21 +3,10 @@
 $config = [
     'defaultRoute' => 'app/index',
     'controllerNamespace' => 'app\backend\controllers',
-    'viewPath' => PROJECT_DIR . "/frontend/views",
+    'viewPath' => PROJECT_DIR . '/frontend/views',
     'components' => [
         'request' => [
             'cookieValidationKey' => '_v3xFO_kgrKMGm7lhFZaLBejxlwY8Gou',
-        ],
-        'view' => [
-            'renderers' => [
-                'twig' => \yii\helpers\ArrayHelper::merge([
-                    'class' => \yii\twig\ViewRenderer::class,
-                    'cachePath' => '@runtime/twig/cache',
-                    'options' => [
-                        'auto_reload' => YII_ENV_DEV
-                    ]
-                ], require "additional/twig.php")
-            ]
         ],
         'assetManager' => [
             'appendTimestamp' => true
@@ -26,7 +15,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-
+            
             ],
         ],
     ]

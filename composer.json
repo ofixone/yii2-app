@@ -11,11 +11,8 @@
   "license": "BSD-3-Clause",
   "require": {
     "php": ">=7.0",
-    "monolog/monolog": "^1.23",
-    "samdark/yii2-psr-log-target": "^1.0",
     "vlucas/phpdotenv": "^2.5",
-    "yiisoft/yii2": "^2.0.15",
-    "yiisoft/yii2-twig": "^2.2"
+    "yiisoft/yii2": "^2.0.0"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
@@ -48,7 +45,7 @@
       "setPermission": [
         {
           "runtime": "0777",
-          "web/assets": "0777",
+          "public/assets": "0777",
           "yii": "0755"
         }
       ]

@@ -6,10 +6,8 @@ use yii\web\Controller;
 
 class AppController extends Controller
 {
-    public $layout = 'main.twig';
-
     public function actionIndex()
     {
-        return $this->render('index.twig');
+        return $this->render('index.php');
     }
 }

@@ -9,7 +9,7 @@ require PROJECT_DIR . '/vendor/yiisoft/yii2/Yii.php';
 require PROJECT_DIR . "/config/primary/bootstrap.php";
 
 $config = \yii\helpers\ArrayHelper::merge(
-    require PROJECT_DIR . "/config/base.php",
+    require PROJECT_DIR . "/config/common.php",
     require PROJECT_DIR . "/config/console.php"
 );
 
